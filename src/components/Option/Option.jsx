@@ -185,24 +185,13 @@ function Option(props) {
               {!props.option && (
                 <>
                   <RemoveIcon
-                    style={{
-                      backgroundColor: '#000',
-                      color: '#90EA93',
-                      borderRadius: '50%',
-                      marginTop: 12,
-                      marginRight: 10
-                    }}
+                    className={classes.removeIcon}
                     onClick={() => {
                       onRemove(index)
                     }}
                   />
                   <AddIcon
-                    style={{
-                      backgroundColor: '#90EA93',
-                      color: '#000',
-                      borderRadius: '50%',
-                      marginTop: 12
-                    }}
+                    className={classes.addIcon}
                     onClick={() => {
                       onAdd(index)
                     }}

@@ -190,14 +190,15 @@ function Food(props) {
         { price: variationItem.price },
         'price'
       )
-      let error = false
-      const occ = variation.filter(v => v.title === variationItem.title)
-      if (occ.length > 1) error = true
-      variationItem.titleError = error
-        ? !error
-        : variations.length > 1
-        ? !validateFunc({ title: variationItem.title }, 'title')
-        : true
+      // Check for duplicate titles (case-insensitive)
+      const occ = variation.filter(
+        v => v.title.toLowerCase() === variationItem.title.toLowerCase()
+      )
+      const hasDuplicate = occ.length > 1
+      // Title is always required, but also check for duplicates
+      variationItem.titleError = hasDuplicate
+        ? false
+        : !validateFunc({ title: variationItem.title }, 'title')
 
       return variationItem
     })
@@ -228,14 +229,17 @@ function Food(props) {
   const onBlurVariation = (index, type) => {
     const variations = [...variation]
     if (type === 'title') {
-      const occ = variations.filter(v => v.title === variations[index][type])
+      // Check for duplicate titles (case-insensitive)
+      const occ = variations.filter(
+        v => v.title.toLowerCase() === variations[index][type].toLowerCase()
+      )
       if (occ.length > 1) {
         variations[index][type + 'Error'] = false
       } else {
-        variations[index][type + 'Error'] =
-          variations.length > 1
-            ? !validateFunc({ [type]: variations[index][type] }, type)
-            : true
+        variations[index][type + 'Error'] = !validateFunc(
+          { [type]: variations[index][type] },
+          type
+        )
       }
     }
 
@@ -279,10 +283,15 @@ function Food(props) {
     }
     fileReader.readAsDataURL(imgUrl)
   }
+  const [isUploading, setIsUploading] = useState(false)
+  const [uploadError, setUploadError] = useState(null)
+
   const uploadImageToCloudinary = async () => {
     if (imgMenu === '') return imgMenu
     if (props.food && props.food.image === imgMenu) return imgMenu
 
+    setIsUploading(true)
+    setUploadError(null)
     const apiUrl = CLOUDINARY_UPLOAD_URL
     const data = {
       file: imgMenu,
@@ -300,6 +309,10 @@ function Food(props) {
       return imageData.secure_url
     } catch (e) {
       console.log(e)
+      setUploadError('Failed to upload image. Please try again.')
+      return imgMenu
+    } finally {
+      setIsUploading(false)
     }
   }
   const { t } = props
@@ -570,7 +583,7 @@ function Food(props) {
           <Box>
             <Button
               className={globalClasses.button}
-              disabled={mutateLoading}
+              disabled={mutateLoading || isUploading}
               onClick={async e => {
                 e.preventDefault()
                 if (onSubmitValidaiton() && !mutateLoading) {

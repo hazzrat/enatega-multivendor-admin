@@ -317,7 +317,7 @@ function Rider(props) {
           )}
           {mainError && (
             <Alert
-              className={globalClasses.alertSuccess}
+              className={globalClasses.alertError}
               variant="filled"
               severity="error">
               {mainError}

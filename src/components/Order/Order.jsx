@@ -34,6 +34,9 @@ function Order(props) {
 
   const onCompleted = ({ updateOrderStatus }) => {
     if (updateOrderStatus) {
+      // Clear any previous errors on success
+      errorSetter('')
+      reasonErrorSetter(null)
       successSetter('Order status updated')
     }
     setTimeout(onDismiss, 5000)

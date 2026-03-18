@@ -79,7 +79,8 @@ const App = () => {
       }
       initializeFirebase()
     }
-  }, [user])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, client])
   const route = userType
     ? userType === 'VENDOR'
       ? '/restaurant/list'

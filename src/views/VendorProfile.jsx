@@ -210,7 +210,7 @@ const VendorProfile = () => {
                     name="username"
                     id="input-type-username"
                     placeholder="Restaurant's username"
-                    type="text"
+                    type="password"
                     defaultValue={(data && data.restaurant.username) || ''}
                     disableUnderline
                     className={[
@@ -226,7 +226,7 @@ const VendorProfile = () => {
                     name="password"
                     id="input-type-password"
                     placeholder="Restaurant's password"
-                    type="text"
+                    type="password"
                     defaultValue={(data && data.restaurant.password) || ''}
                     disableUnderline
                     className={[
@@ -328,7 +328,7 @@ const VendorProfile = () => {
                     name="prefix"
                     id="input-type-order_id_prefix"
                     placeholder="Order Prefix"
-                    type="text"
+                    type="password"
                     defaultValue={data && data.restaurant.orderPrefix}
                     disableUnderline
                     className={[

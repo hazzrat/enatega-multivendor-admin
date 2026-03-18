@@ -69,6 +69,9 @@ const Orders = () => {
           open={detailsModal}
           onClose={() => {
             toggleModal(null)
+            // Reset state when modal closes
+            setSuccess('')
+            setErrors('')
           }}>
           <OrderComponent order={order} />
         </Modal>

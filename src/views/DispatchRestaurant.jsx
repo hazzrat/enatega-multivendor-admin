@@ -169,8 +169,12 @@ const DispatchRestaurant = props => {
       }
     }
   ]
+  // Escape special regex characters to prevent XSS
+  const escapeRegExp = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   const regex =
-    searchQuery.length > 2 ? new RegExp(searchQuery.toLowerCase(), 'g') : null
+    searchQuery.length > 2
+      ? new RegExp(escapeRegExp(searchQuery.toLowerCase()), 'g')
+      : null
 
   const filtered =
     searchQuery.length < 3

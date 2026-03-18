@@ -1,2 +1,12 @@
 node_modules
 /build
+
+# Environment files - never commit secrets
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test.local
+.env.staging
+.env.production
+.env.production.local

@@ -79,9 +79,6 @@ function Riders(props) {
     return orderBy(rows, handleField, direction)
   }
 
-  const handleSort = (column, sortDirection) =>
-    console.log(column.selector, sortDirection)
-
   const { t } = props
 
   const columns = [
@@ -248,7 +245,6 @@ function Riders(props) {
             pagination
             progressPending={loadingQuery}
             progressComponent={<CustomLoader />}
-            onSort={handleSort}
             sortFunction={customSort}
             selectableRows
             customStyles={customStyles}

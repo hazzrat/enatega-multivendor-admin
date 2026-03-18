@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import * as firebase from 'firebase/app'
+import { initializeApp } from 'firebase/app'
 import { getMessaging, isSupported } from 'firebase/messaging'
 import {
   FIREBASE_KEY,
@@ -28,11 +28,9 @@ const firebaseConfig = {
 
 export const initialize = () => {
   // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig)
+  const app = initializeApp(firebaseConfig)
   const messaging = getMessaging(app)
   return messaging
 }
 
-export const isFirebaseSupported = async () => {
-  return await isSupported()
-}
+export const isFirebaseSupported = isSupported

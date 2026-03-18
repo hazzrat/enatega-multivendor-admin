@@ -86,7 +86,7 @@ const client = new ApolloClient({
   link: concat(ApolloLink.from([terminatingLink, requestLink]), httpLink),
   cache,
   resolvers: {},
-  connectToDevTools: true
+  connectToDevTools: process.env.NODE_ENV !== 'production'
 })
 
 function Main() {
