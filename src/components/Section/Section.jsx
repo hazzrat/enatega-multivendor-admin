@@ -90,7 +90,7 @@ function Section(props) {
   const onBlur = (setter, field, state) => {
     setter(!validateFunc({ [field]: state }, field))
   }
-  const onSubmitValidaiton = () => {
+  const onSubmitValidation = () => {
     const nameErrors = !validateFunc(
       { name: formRef.current['input-name'].value },
       'name'
@@ -180,7 +180,7 @@ function Section(props) {
               disabled={loading}
               onClick={async e => {
                 e.preventDefault()
-                if (onSubmitValidaiton() && !loading) {
+                if (onSubmitValidation() && !loading) {
                   mutate({
                     variables: {
                       section: {

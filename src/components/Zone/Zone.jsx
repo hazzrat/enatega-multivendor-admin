@@ -99,7 +99,7 @@ const Zone = props => {
     return { lat: coordinates[0][1], lng: coordinates[0][0] }
   }
 
-  const onSubmitValidaiton = () => {
+  const onSubmitValidation = () => {
     setErrors('')
     const titleErrors = !validateFunc({ title: title }, 'title')
     const descriptionErrors = !validateFunc(
@@ -218,7 +218,7 @@ const Zone = props => {
               disabled={loading}
               onClick={async e => {
                 e.preventDefault()
-                if (onSubmitValidaiton()) {
+                if (onSubmitValidation()) {
                   mutate({
                     variables: {
                       zone: {

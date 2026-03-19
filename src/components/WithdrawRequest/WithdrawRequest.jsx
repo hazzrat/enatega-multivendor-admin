@@ -90,7 +90,7 @@ function WithdrawRequest(props) {
   const onBlur = (setter, field, state) => {
     setter(!validateFunc({ [field]: state }, field))
   }
-  const onSubmitValidaiton = () => {
+  const onSubmitValidation = () => {
     const nameError = !validateFunc(
       { name: formRef.current['input-name'].value },
       'name'
@@ -281,7 +281,7 @@ function WithdrawRequest(props) {
               disabled={loading}
               onClick={async e => {
                 e.preventDefault()
-                if (onSubmitValidaiton()) {
+                if (onSubmitValidation()) {
                   mutate({
                     variables: {
                       riderInput: {

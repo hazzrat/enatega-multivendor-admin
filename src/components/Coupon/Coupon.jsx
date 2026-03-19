@@ -54,7 +54,7 @@ function Category(props) {
     onCompleted
   })
 
-  const onSubmitValidaiton = () => {
+  const onSubmitValidation = () => {
     const titleError = !validateFunc(
       { title: formRef.current['input-code'].value },
       'title'
@@ -150,7 +150,7 @@ function Category(props) {
               disabled={loading}
               onClick={async e => {
                 e.preventDefault()
-                if (onSubmitValidaiton() && !loading) {
+                if (onSubmitValidation() && !loading) {
                   mutate({
                     variables: {
                       couponInput: {

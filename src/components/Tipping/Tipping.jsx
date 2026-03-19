@@ -45,7 +45,7 @@ function Tipping(props) {
     successSetter('')
     mainErrorSetter(message)
   }
-  const onSubmitValidaiton = () => {
+  const onSubmitValidation = () => {
     const form = formRef.current
     const tip1 = form.tip1.value
     const tip2 = form.tip2.value
@@ -159,7 +159,7 @@ function Tipping(props) {
               disabled={loading}
               onClick={async e => {
                 e.preventDefault()
-                if (onSubmitValidaiton()) {
+                if (onSubmitValidation()) {
                   const form = formRef.current
                   const tipArray = []
                   tipArray.push(Number(form.tip1.value))

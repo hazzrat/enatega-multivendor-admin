@@ -175,7 +175,7 @@ function Food(props) {
       variationSetter([...variations])
     }
   }
-  const onSubmitValidaiton = () => {
+  const onSubmitValidation = () => {
     const titleError = !validateFunc(
       { title: formRef.current['input-title'].value },
       'title'
@@ -586,7 +586,7 @@ function Food(props) {
               disabled={mutateLoading || isUploading}
               onClick={async e => {
                 e.preventDefault()
-                if (onSubmitValidaiton() && !mutateLoading) {
+                if (onSubmitValidation() && !mutateLoading) {
                   mutate({
                     variables: {
                       foodInput: {

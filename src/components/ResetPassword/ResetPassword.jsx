@@ -21,7 +21,7 @@ function ResetPassword(props) {
     setter(!validateFunc({ [field]: state }, field))
   }
 
-  const onSubmitValidaiton = () => {
+  const onSubmitValidation = () => {
     const oldPassword = !validateFunc(
       { password: formRef.current['input-oldPassword'].value },
       'password'
@@ -124,7 +124,7 @@ function ResetPassword(props) {
               className={globalClasses.button}
               onClick={async e => {
                 e.preventDefault()
-                if (onSubmitValidaiton()) {
+                if (onSubmitValidation()) {
                   mutate({
                     variables: {
                       oldPassword: formRef.current['input-oldPassword'].value,

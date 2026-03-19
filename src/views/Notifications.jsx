@@ -36,7 +36,7 @@ const Notifications = props => {
     setError('Failed.Please try again')
   }
 
-  const onSubmitValidaiton = () => {
+  const onSubmitValidation = () => {
     const nTitleError = !validateFunc(
       { notificationTitle },
       'notificationTitle'
@@ -115,7 +115,7 @@ const Notifications = props => {
                         disabled={loading}
                         onClick={async e => {
                           e.preventDefault()
-                          if (onSubmitValidaiton()) {
+                          if (onSubmitValidation()) {
                             mutate({
                               variables: {
                                 notificationBody: notificationBody,

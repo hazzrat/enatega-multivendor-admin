@@ -115,7 +115,7 @@ const CreateRestaurant = props => {
     }
   }
 
-  const onSubmitValidaiton = data => {
+  const onSubmitValidation = data => {
     const form = formRef.current
     const name = form.name.value
     const address = form.address.value
@@ -361,7 +361,7 @@ const CreateRestaurant = props => {
               disabled={loading}
               onClick={async e => {
                 e.preventDefault()
-                if (onSubmitValidaiton()) {
+                if (onSubmitValidation()) {
                   const imgUpload = await uploadImageToCloudinary()
                   const form = formRef.current
                   const name = form.name.value

@@ -53,7 +53,7 @@ function Vendor(props) {
     setter(!validateFunc({ [field]: state }, field))
   }
 
-  const onSubmitValidaiton = () => {
+  const onSubmitValidation = () => {
     const emailError = !validateFunc(
       { email: formRef.current['input-email'].value },
       'email'
@@ -135,7 +135,7 @@ function Vendor(props) {
             disabled={mutateLoading}
             onClick={async e => {
               e.preventDefault()
-              if (onSubmitValidaiton() && !mutateLoading) {
+              if (onSubmitValidation() && !mutateLoading) {
                 mutate({
                   variables: {
                     vendorInput: {
